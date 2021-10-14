@@ -1,19 +1,23 @@
-# Express.js and Typescript minimal starter kit
+# Task Manager REST API
 
 ## Clone this repo
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/koative/express-typescript-starter
+$ git clone https://github.com/korayguler/task-manager-api
 
 # Go into the repository
-$ cd express-typescript-starter
+$ cd task-manager-api
 ```
 
 ## Project setup
 
 ```bash
 npm install
+
+or
+
+yarn
 
 ```
 
@@ -22,11 +26,19 @@ npm install
 ```
 npm run dev
 
+or
+
+yarn dev
+
 ```
 
 ### Compiles and minifies for production
 
 ```
 npm run build
+
+or
+
+yarn build
 
 ```
