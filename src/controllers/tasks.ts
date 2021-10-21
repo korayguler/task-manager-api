@@ -1,58 +1,23 @@
-import { Request, Response, NextFunction } from 'express'
+import { Request, Response } from 'express'
 
-import asyncHandler from '@middleware/async-handler'
+const getTask = (req: Request, res: Response) => {
+  res.send('getTask')
+}
 
-import createCustomError from '@errors/custom-error'
+const getTasks = (req: Request, res: Response) => {
+  res.send('getTasks')
+}
 
-import Task from '@models/task'
+const createTask = (req: Request, res: Response) => {
+  res.send('createTask')
+}
 
-const getTask = asyncHandler(
-  async (req: Request, res: Response, next: NextFunction) => {
-    const task = await Task.findById(req.params.id)
+const updateTask = (req: Request, res: Response) => {
+  res.send('updateTask')
+}
 
-    if (!task) {
-      return next(createCustomError('Not Found', 404))
-    }
-
-    res.status(200).json({ status: 'Success', data: task })
-  },
-)
-
-const getTasks = asyncHandler(async (req: Request, res: Response) => {
-  const tasks = await Task.find()
-  res.status(200).json({ status: 'Success', data: tasks })
-})
-
-const createTask = asyncHandler(async (req: Request, res: Response) => {
-  const task = await Task.create(req.body)
-  res.status(200).json({ status: 'Success', data: task })
-})
-
-const updateTask = asyncHandler(
-  async (req: Request, res: Response, next: NextFunction) => {
-    const task = await Task.findOneAndUpdate({ id: req.params.id }, req.body, {
-      new: true,
-      runValidators: true,
-    })
-
-    if (!task) {
-      return next(createCustomError('Not Found', 404))
-    }
-
-    res.status(200).json({ status: 'Success', data: task })
-  },
-)
-
-const deleteTask = asyncHandler(
-  async (req: Request, res: Response, next: NextFunction) => {
-    const task = await Task.findByIdAndDelete(req.params.id)
-
-    if (!task) {
-      return next(createCustomError('Not Found', 404))
-    }
-
-    res.status(200).json({ status: 'Success', data: task })
-  },
-)
+const deleteTask = (req: Request, res: Response) => {
+  res.send('deleteTask')
+}
 
 export { createTask, getTask, getTasks, updateTask, deleteTask }
