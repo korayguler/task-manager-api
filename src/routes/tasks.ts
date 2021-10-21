@@ -6,7 +6,7 @@ import {
   createTask,
   updateTask,
   deleteTask,
-} from '@/controllers/tasks'
+} from '@controllers/tasks'
 
 const router = Router()
 
