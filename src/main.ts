@@ -1,3 +1,4 @@
+import 'module-alias/register'
 import mongoConnect from '@services/mongo'
 import express, { Application } from 'express'
 import env from 'dotenv'
