@@ -3,13 +3,14 @@
   "description": "Express.js task manager api",
   "main": "build/main.js",
   "scripts": {
-    "start": "node  build/main.js",
+    "start": "node -r tsconfig-paths/register dist/main.js",
     "dev": "ts-node-dev -r tsconfig-paths/register src/main.ts",
-    "build": "tsc -p ./"
+    "build": "tsc"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "module-alias": "^2.2.2",
     "mongoose": "^6.0.11",
     "typescript": "^4.4.4"
   },
@@ -19,5 +20,13 @@
     "@types/node": "^16.11.0",
     "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.11.0"
+  },
+  "_moduleAliases": {
+    "@controllers": "dist/controllers",
+    "@services": "dist/services",
+    "@middleware": "dist/middleware",
+    "@models": "dist/models",
+    "@routes": "dist/routes",
+    "@errors": "dist/errors"
   }
 }
